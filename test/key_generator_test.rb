@@ -7,6 +7,11 @@ class TestKeyGenerator < Minitest::Test
     key_generator = KeyGenerator.new
     assert_equal true, key_generator = !nil
   end
+
+  def test_generate_new_key_returns_number
+    key_generator = KeyGenerator.new
+    assert_equal Fixnum, key_generator.generate_new_key.class
+  end
 end
 
 
