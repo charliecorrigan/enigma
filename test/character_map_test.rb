@@ -7,4 +7,17 @@ class TestCharacterMap < Minitest::Test
     character_map = CharacterMap.new
     refute_nil character_map
   end
+
+  def test_character_map_values
+    character_map = CharacterMap.new
+    assert_equal Hash, character_map.map.class
+    assert_equal 1, character_map.map["a"]
+    assert_equal 26, character_map.map["z"]
+    assert_equal 27, character_map.map["0"]
+    assert_equal 36, character_map.map["9"]
+    assert_equal 37, character_map.map[" "]
+    assert_equal 39, character_map.map[","]
+end
+
+
 end
