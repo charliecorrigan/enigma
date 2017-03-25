@@ -1,5 +1,5 @@
 class KeyGenerator
-  attr_reader :key
+  attr_accessor :key
 
   def generate_new_key
     @key = ""
