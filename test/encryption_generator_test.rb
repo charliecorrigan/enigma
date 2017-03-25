@@ -17,4 +17,16 @@ class TestEncryptionGenerator < Minitest::Test
     encryption_generator = EncryptionGenerator.new
     assert_equal String, encryption_generator.rotation_a.class
   end
+
+  def test_access_to_generate_offsets
+    encryption_generator = EncryptionGenerator.new
+    assert_equal String, encryption_generator.offset_a.class
+  end
+
+#key_a, key_b
+  def test_encryption_keys_generator_return
+    encryption_generator = EncryptionGenerator.new
+    assert_equal Array, encryption_generator.encryption_keys.class
+    assert_equal 4, encryption_generator.encryption_keys.length
+  end
 end
