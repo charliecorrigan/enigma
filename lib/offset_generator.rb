@@ -10,4 +10,18 @@ class OffsetGenerator
     date = day + month + year
     date.to_i  
   end
+
+  def generate_offset(rotation)
+    value = (generate_date ** 2).to_s
+    if rotation == "a"
+      value[0]
+    elsif rotation == "b"
+      value[1]
+    elsif rotation == "c"
+      value[2]
+    else
+      value[3]
+    end
+  end
+
 end
