@@ -34,6 +34,13 @@ class TestEncryptionGenerator < Minitest::Test
     encryption_generator = EncryptionGenerator.new("hello world")
     assert_equal Array, encryption_generator.translate_text_to_numbers.class
     assert_equal 11, encryption_generator.translate_text_to_numbers.length
+    assert_equal Fixnum, encryption_generator.translate_text_to_numbers[0].class
+  end
+
+  def test_generate_cipher_return_value
+    encryption_generator = EncryptionGenerator.new("hello world")
+    assert_equal String, encryption_generator.generate_cipher.class
+    assert_equal 11, encryption_generator.generate_cipher.length
   end
 
 end
