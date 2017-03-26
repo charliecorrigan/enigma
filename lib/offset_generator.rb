@@ -1,5 +1,11 @@
 require 'pry'
 class OffsetGenerator
+  attr_reader :formatted_date
+
+  def initialize(formatted_date)
+    @formatted_date = formatted_date
+    generate_date if formatted_date.nil?
+  end
 
   def generate_date
     day = Time.now.day.to_s
@@ -9,11 +15,11 @@ class OffsetGenerator
     month = "0" + month if month.length < 2
     year = year[2..3] if year.length > 2
     date = day + month + year
-    date.to_i  
+    @formatted_date = date.to_i
   end
 
   def generate_offset(rotation)
-    squared_value_to_string = (generate_date ** 2).to_s
+    squared_value_to_string = (formatted_date ** 2).to_s
     last_four_digits = squared_value_to_string[-4..-1]
     if rotation == "a"
       last_four_digits[0]
