@@ -5,7 +5,7 @@ require './lib/encryption_generator.rb'
 class TestEncryptionGenerator < Minitest::Test
   def test_existence_of_encryption_generator_class
     encryption_generator = EncryptionGenerator.new("hello world")
-    refute_nil encryption_generator
+    assert_instance_of EncryptionGenerator, encryption_generator
   end
 
   def test_access_to_character_map
@@ -37,17 +37,22 @@ class TestEncryptionGenerator < Minitest::Test
     assert_equal Fixnum, encryption_generator.translate_text_to_numbers[0].class
   end
 
-  def test_generate_cipher_return_value
-    encryption_generator = EncryptionGenerator.new("hello world")
-    assert_equal String, encryption_generator.generate_cipher.class
-    assert_equal 11, encryption_generator.generate_cipher.length
-  end
+  # def test_generate_cipher_return_value
+  #   encryption_generator = EncryptionGenerator.new("hello world")
+  #   assert_equal String, encryption_generator.generate_cipher.class
+  #   assert_equal 11, encryption_generator.generate_cipher.length
+  # end
 
   def test_generate_cipher_for_accurate_encryption
     encryption_generator = EncryptionGenerator.new("hello world")
     encryption_generator.keys = [2, 4, 2, 4]
     assert_equal "jinpqbystpf", encryption_generator.generate_cipher
   end
-
+ 
+  def test_generate_cipher_for_accurate_encryption_with_key_in_argument
+    encryption_generator = EncryptionGenerator.new("hello world", "12345")
+    result = encryption_generator.generate_cipher
+    assert_equal "t5o00yz33g", result
+  end
   
-end
+ end

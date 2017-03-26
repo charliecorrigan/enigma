@@ -1,3 +1,4 @@
+require 'pry'
 class KeyGenerator
   def generate_new_key
     key = ""
@@ -6,6 +7,7 @@ class KeyGenerator
   end
 
   def get_rotation(key_input, rotation)
+    #binding.pry
     if rotation == "a"
       key_input[0..1]
     elsif rotation == "b"

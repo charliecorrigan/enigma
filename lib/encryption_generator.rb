@@ -4,38 +4,41 @@ require './lib/offset_generator'
 require 'pry'
 
 class EncryptionGenerator
-  attr_reader :text, :character_map, :rotation_a,  :rotation_b,  :rotation_c,  :rotation_d, :offset_a, :offset_b, :offset_c, :offset_d, :key_generator
+  attr_reader :text, :character_map, :rotation_a,  :rotation_b,  :rotation_c,  :rotation_d, :offset_a, :offset_b, :offset_c, :offset_d, :key_generator, :key_input
   attr_accessor :keys
 
-  def initialize(text, key_input = nil)
+  def initialize(text, input = nil)
+    #binding.pry
     @text = text
     @character_map = CharacterMap.new
-    #@key_input = key_input
-    key_input_decision(key_input)
+    # @key_input = key_input
+    key_input_decision(input)
     # key_generator = KeyGenerator.new
     # key_generator.generate_new_key
     #binding.pry
-    @rotation_a = key_generator.get_rotation(@key_input, "a")
-    @rotation_b = key_generator.get_rotation(@key_input, "b")
-    @rotation_c = key_generator.get_rotation(@key_input, "c")
-    @rotation_d = key_generator.get_rotation(@key_input, "d")
+    @rotation_a = key_generator.get_rotation(key_input, "a")
+    @rotation_b = key_generator.get_rotation(key_input, "b")
+    @rotation_c = key_generator.get_rotation(key_input, "c")
+    @rotation_d = key_generator.get_rotation(key_input, "d")
     offset_generator = OffsetGenerator.new
     @offset_a = offset_generator.generate_offset("a")
     @offset_b = offset_generator.generate_offset("b")
     @offset_c = offset_generator.generate_offset("c")
     @offset_d = offset_generator.generate_offset("d")
     encryption_keys
+    
   end
 
-  def key_input_decision(key_input)
+  def key_input_decision(input)
     #binding.pry
-    if key_input == nil
+    if input == nil
       @key_generator = KeyGenerator.new
       @key_input = key_generator.generate_new_key
       #binding.pry
       return @key_input
     else
       @key_generator = KeyGenerator.new
+      @key_input = input
     end  
   end
 
@@ -57,6 +60,7 @@ class EncryptionGenerator
   def generate_cipher
     index = 0
     cipher_numbers = []
+    sum = 0
     characters_as_numbers = translate_text_to_numbers
     characters_as_numbers.each do |character|
      sum = character + keys[index]
