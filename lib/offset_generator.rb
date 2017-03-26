@@ -1,3 +1,4 @@
+require 'pry'
 class OffsetGenerator
 
   def generate_date
@@ -12,15 +13,16 @@ class OffsetGenerator
   end
 
   def generate_offset(rotation)
-    value = (generate_date ** 2).to_s
+    squared_value_to_string = (generate_date ** 2).to_s
+    last_four_digits = squared_value_to_string[-4..-1]
     if rotation == "a"
-      value[0]
+      last_four_digits[0]
     elsif rotation == "b"
-      value[1]
+      last_four_digits[1]
     elsif rotation == "c"
-      value[2]
+      last_four_digits[2]
     else
-      value[3]
+      last_four_digits[3]
     end
   end
 
