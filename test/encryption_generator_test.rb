@@ -49,4 +49,5 @@ class TestEncryptionGenerator < Minitest::Test
     assert_equal "jinpqbystpf", encryption_generator.generate_cipher
   end
 
+  
 end

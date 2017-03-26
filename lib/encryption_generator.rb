@@ -4,24 +4,39 @@ require './lib/offset_generator'
 require 'pry'
 
 class EncryptionGenerator
-  attr_reader :text, :character_map, :rotation_a,  :rotation_b,  :rotation_c,  :rotation_d, :offset_a, :offset_b, :offset_c, :offset_d
+  attr_reader :text, :character_map, :rotation_a,  :rotation_b,  :rotation_c,  :rotation_d, :offset_a, :offset_b, :offset_c, :offset_d, :key_generator
   attr_accessor :keys
 
-  def initialize(text)
+  def initialize(text, key_input = nil)
     @text = text
     @character_map = CharacterMap.new
-    key_generator = KeyGenerator.new
-    key_generator.generate_new_key
-    @rotation_a = key_generator.get_rotation("a")
-    @rotation_b = key_generator.get_rotation("b")
-    @rotation_c = key_generator.get_rotation("c")
-    @rotation_d = key_generator.get_rotation("d")
+    #@key_input = key_input
+    key_input_decision(key_input)
+    # key_generator = KeyGenerator.new
+    # key_generator.generate_new_key
+    #binding.pry
+    @rotation_a = key_generator.get_rotation(@key_input, "a")
+    @rotation_b = key_generator.get_rotation(@key_input, "b")
+    @rotation_c = key_generator.get_rotation(@key_input, "c")
+    @rotation_d = key_generator.get_rotation(@key_input, "d")
     offset_generator = OffsetGenerator.new
     @offset_a = offset_generator.generate_offset("a")
     @offset_b = offset_generator.generate_offset("b")
     @offset_c = offset_generator.generate_offset("c")
     @offset_d = offset_generator.generate_offset("d")
     encryption_keys
+  end
+
+  def key_input_decision(key_input)
+    #binding.pry
+    if key_input == nil
+      @key_generator = KeyGenerator.new
+      @key_input = key_generator.generate_new_key
+      #binding.pry
+      return @key_input
+    else
+      @key_generator = KeyGenerator.new
+    end  
   end
 
   def encryption_keys
@@ -43,10 +58,8 @@ class EncryptionGenerator
     index = 0
     cipher_numbers = []
     characters_as_numbers = translate_text_to_numbers
-    #binding.pry
     characters_as_numbers.each do |character|
      sum = character + keys[index]
-     #binding.pry
       if index == 3
         index = 0
       else
@@ -57,7 +70,6 @@ class EncryptionGenerator
     cipher_letters = cipher_numbers.map do |number|
       character_map.map.key(number)
     end
-    # binding.pry
     cipher = cipher_letters.join
   end
 end
