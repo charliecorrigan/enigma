@@ -30,4 +30,10 @@ class EncryptionGenerator
     keys << rotation_d.to_i + offset_d.to_i
     keys
   end
+
+  def translate_text_to_numbers
+    characters_as_numbers = text.split("").map do |character|
+      character_map.map[character]
+    end
+  end
 end
