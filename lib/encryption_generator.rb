@@ -1,6 +1,7 @@
 require './lib/character_map'
 require './lib/key_generator'
 require './lib/offset_generator'
+require 'pry'
 
 class EncryptionGenerator
   attr_reader :text, :character_map, :rotation_a,  :rotation_b,  :rotation_c,  :rotation_d, :offset_a, :offset_b, :offset_c, :offset_d
@@ -29,5 +30,33 @@ class EncryptionGenerator
     keys << rotation_c.to_i + offset_c.to_i
     keys << rotation_d.to_i + offset_d.to_i
     keys
+  end
+
+  def translate_text_to_numbers
+    characters_as_numbers = text.split("").map do |character|
+      character_map.map[character]
+    end
+  end
+
+  def generate_cipher
+    index = 0
+    cipher_numbers = []
+    characters_as_numbers = translate_text_to_numbers
+    #binding.pry
+    characters_as_numbers.each do |character|
+     sum = character + encryption_keys[index]
+     #binding.pry
+      if index == 3
+        index = 0
+      else
+        index += 1
+      end
+      cipher_numbers << sum % 39
+    end
+    cipher_letters = cipher_numbers.map do |number|
+      character_map.map.key(number)
+    end
+    # binding.pry
+    cipher = cipher_letters.join
   end
 end
