@@ -5,6 +5,7 @@ require 'pry'
 
 class EncryptionGenerator
   attr_reader :text, :character_map, :rotation_a,  :rotation_b,  :rotation_c,  :rotation_d, :offset_a, :offset_b, :offset_c, :offset_d
+  attr_accessor :keys
 
   def initialize(text)
     @text = text
@@ -24,11 +25,11 @@ class EncryptionGenerator
   end
 
   def encryption_keys
-    keys = []
-    keys << rotation_a.to_i + offset_a.to_i
-    keys << rotation_b.to_i + offset_b.to_i
-    keys << rotation_c.to_i + offset_c.to_i
-    keys << rotation_d.to_i + offset_d.to_i
+    @keys = []
+    @keys << rotation_a.to_i + offset_a.to_i
+    @keys << rotation_b.to_i + offset_b.to_i
+    @keys << rotation_c.to_i + offset_c.to_i
+    @keys << rotation_d.to_i + offset_d.to_i
     keys
   end
 
@@ -44,7 +45,7 @@ class EncryptionGenerator
     characters_as_numbers = translate_text_to_numbers
     #binding.pry
     characters_as_numbers.each do |character|
-     sum = character + encryption_keys[index]
+     sum = character + keys[index]
      #binding.pry
       if index == 3
         index = 0

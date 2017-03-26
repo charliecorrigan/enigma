@@ -43,4 +43,10 @@ class TestEncryptionGenerator < Minitest::Test
     assert_equal 11, encryption_generator.generate_cipher.length
   end
 
+  def test_generate_cipher_for_accurate_encryption
+    encryption_generator = EncryptionGenerator.new("hello world")
+    encryption_generator.keys = [2, 4, 2, 4]
+    assert_equal "jinpqbystpf", encryption_generator.generate_cipher
+  end
+
 end
