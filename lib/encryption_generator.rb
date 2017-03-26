@@ -3,9 +3,10 @@ require './lib/key_generator'
 require './lib/offset_generator'
 
 class EncryptionGenerator
-  attr_reader :character_map, :rotation_a,  :rotation_b,  :rotation_c,  :rotation_d, :offset_a, :offset_b, :offset_c, :offset_d
+  attr_reader :text, :character_map, :rotation_a,  :rotation_b,  :rotation_c,  :rotation_d, :offset_a, :offset_b, :offset_c, :offset_d
 
-  def initialize
+  def initialize(text)
+    @text = text
     @character_map = CharacterMap.new
     key_generator = KeyGenerator.new
     key_generator.generate_new_key
