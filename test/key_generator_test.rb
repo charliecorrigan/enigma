@@ -16,12 +16,10 @@ class TestKeyGenerator < Minitest::Test
 
   def test_get_rotation_return_value
     key_generator = KeyGenerator.new
-    key_generator.generate_new_key
-    assert_equal 2, key_generator.get_rotation("a").length
-    key_generator.key = "12345"
-    assert_equal "12", key_generator.get_rotation("a")
-    assert_equal "23", key_generator.get_rotation("b")
-    assert_equal "34", key_generator.get_rotation("c")
-    assert_equal "45", key_generator.get_rotation("d")
+    assert_equal 2, key_generator.get_rotation("12345", "a").length
+    assert_equal "12", key_generator.get_rotation("12345", "a")
+    assert_equal "23", key_generator.get_rotation("12345", "b")
+    assert_equal "34", key_generator.get_rotation("12345", "c")
+    assert_equal "45", key_generator.get_rotation("12345", "d")
   end
 end

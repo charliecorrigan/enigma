@@ -10,7 +10,7 @@ class TestEncryptionGenerator < Minitest::Test
 
   def test_access_to_character_map
     encryption_generator = EncryptionGenerator.new("hello world")
-    assert_equal 1, encryption_generator.character_map.map["a"]
+    assert_equal 0, encryption_generator.character_map.map["a"]
   end
 
   def test_access_to_generate_keys
@@ -37,11 +37,11 @@ class TestEncryptionGenerator < Minitest::Test
     assert_equal Fixnum, encryption_generator.translate_text_to_numbers[0].class
   end
 
-  # def test_generate_cipher_return_value
-  #   encryption_generator = EncryptionGenerator.new("hello world")
-  #   assert_equal String, encryption_generator.generate_cipher.class
-  #   assert_equal 11, encryption_generator.generate_cipher.length
-  # end
+  def test_generate_cipher_return_value
+    encryption_generator = EncryptionGenerator.new("hello world")
+    assert_equal String, encryption_generator.generate_cipher.class
+    assert_equal 11, encryption_generator.generate_cipher.length
+  end
 
   def test_generate_cipher_for_accurate_encryption
     encryption_generator = EncryptionGenerator.new("hello world")
@@ -50,9 +50,9 @@ class TestEncryptionGenerator < Minitest::Test
   end
  
   def test_generate_cipher_for_accurate_encryption_with_key_in_argument
-    encryption_generator = EncryptionGenerator.new("hello world", "12345")
+    encryption_generator = EncryptionGenerator.new("nick 1", "12345")
     result = encryption_generator.generate_cipher
-    assert_equal "t5o00yz33g", result
+    assert_equal "z9fzjp", result
   end
   
  end
