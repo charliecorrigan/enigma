@@ -39,20 +39,25 @@ class TestEncryptionGenerator < Minitest::Test
 
   def test_generate_cipher_return_value
     encryption_generator = EncryptionGenerator.new("hello world")
-    assert_equal String, encryption_generator.generate_cipher.class
-    assert_equal 11, encryption_generator.generate_cipher.length
+    assert_equal String, encryption_generator.generate_cipher("encrypt").class
+    assert_equal 11, encryption_generator.generate_cipher("encrypt").length
   end
 
   def test_generate_cipher_for_accurate_encryption
     encryption_generator = EncryptionGenerator.new("hello world")
     encryption_generator.keys = [2, 4, 2, 4]
-    assert_equal "jinpqbystpf", encryption_generator.generate_cipher
+    assert_equal "jinpqbystpf", encryption_generator.generate_cipher("encrypt")
   end
  
   def test_generate_cipher_for_accurate_encryption_with_key_and_date_arguments
     encryption_generator = EncryptionGenerator.new("nick 1", "12345", 260317)
-    result = encryption_generator.generate_cipher
+    result = encryption_generator.generate_cipher("encrypt")
     assert_equal "z9fzjp", result
   end
   
+  def test_generate_cipher_accepts_arguments
+    encryption_generator = EncryptionGenerator.new("nick 1", "12345", 260317)
+    result = encryption_generator.generate_cipher("encrypt")
+    assert_equal "z9fzjp", result
+  end
  end

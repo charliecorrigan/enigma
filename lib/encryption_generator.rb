@@ -49,7 +49,7 @@ class EncryptionGenerator
     end
   end
 
-  def generate_cipher
+  def generate_cipher(rotation_direction)
     index = 0
     cipher_numbers = []
     sum = 0
