@@ -55,13 +55,20 @@ class EncryptionGenerator
     sum = 0
     characters_as_numbers = translate_text_to_numbers
     characters_as_numbers.each do |character|
-     sum = character + keys[index]
+      if rotation_direction == "encrypt"
+        result = (character + keys[index]) % 39
+      else
+        result = character - keys[index]
+          while result < 0
+            result += 39
+          end  
+      end
       if index == 3
         index = 0
       else
         index += 1
       end
-      cipher_numbers << sum % 39
+      cipher_numbers << result
     end
     cipher_letters = cipher_numbers.map do |number|
       character_map.map.key(number)

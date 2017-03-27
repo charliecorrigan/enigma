@@ -55,9 +55,9 @@ class TestEncryptionGenerator < Minitest::Test
     assert_equal "z9fzjp", result
   end
   
-  def test_generate_cipher_accepts_arguments
-    encryption_generator = EncryptionGenerator.new("nick 1", "12345", 260317)
-    result = encryption_generator.generate_cipher("encrypt")
-    assert_equal "z9fzjp", result
+  def test_generate_cipher_decryption_option
+    encryption_generator = EncryptionGenerator.new("z9fzjp", "12345", 260317)
+    result = encryption_generator.generate_cipher("decrypt")
+    assert_equal "nick 1", result
   end
  end
