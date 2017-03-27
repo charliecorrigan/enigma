@@ -49,8 +49,8 @@ class TestEncryptionGenerator < Minitest::Test
     assert_equal "jinpqbystpf", encryption_generator.generate_cipher
   end
  
-  def test_generate_cipher_for_accurate_encryption_with_key_in_argument
-    encryption_generator = EncryptionGenerator.new("nick 1", "12345")
+  def test_generate_cipher_for_accurate_encryption_with_key_and_date_arguments
+    encryption_generator = EncryptionGenerator.new("nick 1", "12345", 260317)
     result = encryption_generator.generate_cipher
     assert_equal "z9fzjp", result
   end
