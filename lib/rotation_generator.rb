@@ -1,6 +1,6 @@
 require 'pry'
-class KeyGenerator
-  def generate_new_key
+class RotationGenerator
+  def generate_new_rotation
     key = ""
     key << rand(9).to_s until key.length == 5
     key
