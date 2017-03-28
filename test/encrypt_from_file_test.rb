@@ -1,18 +1,18 @@
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/encrypt'
+require './lib/encrypt_from_file'
 require 'pry'
 
 #message.txt should live in fixtures/ which lives in test/
-class EncryptTest < Minitest::Test
+class EncryptFromFileTest < Minitest::Test
   def test_existence_of_class
-    encrypt = Encrypt.new("./test/fixtures/nick_1.txt", "./test/fixtures/encrypted_nick.txt")
-    assert_instance_of Encrypt, encrypt
+    encrypt = EncryptFromFile.new("./test/fixtures/nick_1.txt", "./test/fixtures/encrypted_nick.txt")
+    assert_instance_of EncryptFromFile, encrypt
   end
 
   def test_encrypted_file_created_by_encrypt
-    encrypt = Encrypt.new("./test/fixtures/nick_1.txt", "./test/fixtures/encrypted_nick.txt")
+    encrypt = EncryptFromFile.new("./test/fixtures/nick_1.txt", "./test/fixtures/encrypted_nick.txt")
     encrypted_file = File.open("./test/fixtures/encrypted_nick.txt")
     assert_equal 6, encrypted_file.read.length
     assert_equal String, encrypted_file.read.class

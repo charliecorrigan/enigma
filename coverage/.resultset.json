@@ -406,7 +406,7 @@
         null,
         null
       ],
-      "/Users/nickedwards/turing/1module/enigma/test/encrypt_test.rb": [
+      "/Users/nickedwards/turing/1module/enigma/test/encrypt_from_file_test.rb": [
         1,
         1,
         1,
@@ -429,16 +429,13 @@
         null,
         null
       ],
-      "/Users/nickedwards/turing/1module/enigma/lib/encrypt.rb": [
+      "/Users/nickedwards/turing/1module/enigma/lib/encrypt_from_file.rb": [
         1,
         1,
-        1,
-        null,
         1,
         2,
         2,
         2,
-        null,
         null,
         null,
         1,
@@ -446,27 +443,21 @@
         2,
         null,
         null,
-        null,
         1,
         2,
-        null,
         2,
         2,
-        null,
         null,
         null,
         1,
         2,
-        null,
         2,
         2,
         2,
-        null,
-        null,
         null,
         null
       ]
     },
-    "timestamp": 1490707223
+    "timestamp": 1490708173
   }
 }

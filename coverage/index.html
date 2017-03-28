@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-03-28T07:20:23-06:00">2017-03-28T07:20:23-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-03-28T07:36:13-06:00">2017-03-28T07:36:13-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,15 +25,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         12.33
+         12.38
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>12</b> files in total.
-    <b>265</b> relevant lines. 
-    <span class="green"><b>265</b> lines covered</span> and
+    <b>264</b> relevant lines. 
+    <span class="green"><b>264</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -61,13 +61,13 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#2781fd3dba9d5695d415231c4398bc875cd1c5b9" class="src_link" title="lib/encrypt.rb">lib/encrypt.rb</a></td>
+        <td class="strong"><a href="#d92e3d43c5f5ef7f909b5337ced95f9293c4813b" class="src_link" title="lib/encrypt_from_file.rb">lib/encrypt_from_file.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>35</td>
-        <td>19</td>
-        <td>19</td>
+        <td>26</td>
+        <td>18</td>
+        <td>18</td>
         <td>0</td>
-        <td>1.6</td>
+        <td>1.7</td>
       </tr>
       
       <tr>
@@ -121,7 +121,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#e337468f5ac35c85d82f8a05b5f203e199192e57" class="src_link" title="test/encrypt_test.rb">test/encrypt_test.rb</a></td>
+        <td class="strong"><a href="#12e328a0064d179ef7145048317bd6b1bff9e510" class="src_link" title="test/encrypt_from_file_test.rb">test/encrypt_from_file_test.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>21</td>
         <td>14</td>
@@ -480,13 +480,13 @@
   </pre>
 </div>
       
-        <div class="source_table" id="2781fd3dba9d5695d415231c4398bc875cd1c5b9">
+        <div class="source_table" id="d92e3d43c5f5ef7f909b5337ced95f9293c4813b">
   <div class="header">
-    <h3>lib/encrypt.rb</h3>
+    <h3>lib/encrypt_from_file.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>19</b> relevant lines. 
-      <span class="green"><b>19</b> lines covered</span> and
+      <b>18</b> relevant lines. 
+      <span class="green"><b>18</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -497,208 +497,154 @@
         <li class="covered" data-hits="1" data-linenumber="1">
           <span class="hits">1</span>
           
-          <code class="ruby">require &#39;pry&#39;</code>
+          <code class="ruby">require &#39;./lib/enigma&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="2">
           <span class="hits">1</span>
           
-          <code class="ruby">require &#39;./lib/enigma&#39;</code>
+          <code class="ruby">class EncryptFromFile</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">class Encrypt</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="4">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="5">
-          <span class="hits">1</span>
-          
           <code class="ruby">  def initialize(input = nil, output = nil)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="6">
+        <li class="covered" data-hits="2" data-linenumber="4">
           <span class="hits">2</span>
           
           <code class="ruby">    @input = input || ARGV[0]</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="7">
+        <li class="covered" data-hits="2" data-linenumber="5">
           <span class="hits">2</span>
           
           <code class="ruby">    @output = output || ARGV[1]</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="8">
+        <li class="covered" data-hits="2" data-linenumber="6">
           <span class="hits">2</span>
           
           <code class="ruby">    create_and_write_encrypted_file</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="9">
+        <li class="never" data-hits="" data-linenumber="7">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="10">
+        <li class="never" data-hits="" data-linenumber="8">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="11">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="12">
+        <li class="covered" data-hits="1" data-linenumber="9">
           <span class="hits">1</span>
           
           <code class="ruby">  def open_and_save_file_contents</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="13">
+        <li class="covered" data-hits="2" data-linenumber="10">
           <span class="hits">2</span>
           
           <code class="ruby">    file_contents = File.open(@input, &#39;r&#39;).read</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="14">
+        <li class="covered" data-hits="2" data-linenumber="11">
           <span class="hits">2</span>
           
           <code class="ruby">    file_contents</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="15">
-          
-          
-          <code class="ruby">    #binding.pry</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="16">
+        <li class="never" data-hits="" data-linenumber="12">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="17">
+        <li class="never" data-hits="" data-linenumber="13">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="18">
+        <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
           <code class="ruby">  def encrypt_file_contents</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="19">
+        <li class="covered" data-hits="2" data-linenumber="15">
           <span class="hits">2</span>
           
           <code class="ruby">    original_file_contents = open_and_save_file_contents</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="20">
-          
-          
-          <code class="ruby">    #binding.pry</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="21">
+        <li class="covered" data-hits="2" data-linenumber="16">
           <span class="hits">2</span>
           
           <code class="ruby">    enigma = Enigma.new</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="22">
+        <li class="covered" data-hits="2" data-linenumber="17">
           <span class="hits">2</span>
           
           <code class="ruby">    enigma.encrypt(original_file_contents)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="23">
-          
-          
-          <code class="ruby">    #binding.pry</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="24">
+        <li class="never" data-hits="" data-linenumber="18">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="25">
+        <li class="never" data-hits="" data-linenumber="19">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="26">
+        <li class="covered" data-hits="1" data-linenumber="20">
           <span class="hits">1</span>
           
           <code class="ruby">  def create_and_write_encrypted_file</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="27">
+        <li class="covered" data-hits="2" data-linenumber="21">
           <span class="hits">2</span>
           
           <code class="ruby">    contents = encrypt_file_contents</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="28">
-          
-          
-          <code class="ruby">    #binding.pry</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="29">
+        <li class="covered" data-hits="2" data-linenumber="22">
           <span class="hits">2</span>
           
           <code class="ruby">    encrypted_file = File.open(@output, &quot;w&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="30">
+        <li class="covered" data-hits="2" data-linenumber="23">
           <span class="hits">2</span>
           
           <code class="ruby">    encrypted_file.write(contents)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="31">
+        <li class="covered" data-hits="2" data-linenumber="24">
           <span class="hits">2</span>
           
           <code class="ruby">    encrypted_file.close</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="32">
-          
-          
-          <code class="ruby">    #binding.pry</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="33">
+        <li class="never" data-hits="" data-linenumber="25">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="34">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="35">
+        <li class="never" data-hits="" data-linenumber="26">
           
           
           <code class="ruby">end</code>
@@ -1818,9 +1764,9 @@
   </pre>
 </div>
       
-        <div class="source_table" id="e337468f5ac35c85d82f8a05b5f203e199192e57">
+        <div class="source_table" id="12e328a0064d179ef7145048317bd6b1bff9e510">
   <div class="header">
-    <h3>test/encrypt_test.rb</h3>
+    <h3>test/encrypt_from_file_test.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>14</b> relevant lines. 
@@ -1853,7 +1799,7 @@
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">require &#39;./lib/encrypt&#39;</code>
+          <code class="ruby">require &#39;./lib/encrypt_from_file&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="5">
@@ -1877,7 +1823,7 @@
         <li class="covered" data-hits="1" data-linenumber="8">
           <span class="hits">1</span>
           
-          <code class="ruby">class EncryptTest &lt; Minitest::Test</code>
+          <code class="ruby">class EncryptFromFileTest &lt; Minitest::Test</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="9">
@@ -1889,13 +1835,13 @@
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">    encrypt = Encrypt.new(&quot;./test/fixtures/nick_1.txt&quot;, &quot;./test/fixtures/encrypted_nick.txt&quot;)</code>
+          <code class="ruby">    encrypt = EncryptFromFile.new(&quot;./test/fixtures/nick_1.txt&quot;, &quot;./test/fixtures/encrypted_nick.txt&quot;)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="11">
           <span class="hits">1</span>
           
-          <code class="ruby">    assert_instance_of Encrypt, encrypt</code>
+          <code class="ruby">    assert_instance_of EncryptFromFile, encrypt</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="12">
@@ -1919,7 +1865,7 @@
         <li class="covered" data-hits="1" data-linenumber="15">
           <span class="hits">1</span>
           
-          <code class="ruby">    encrypt = Encrypt.new(&quot;./test/fixtures/nick_1.txt&quot;, &quot;./test/fixtures/encrypted_nick.txt&quot;)</code>
+          <code class="ruby">    encrypt = EncryptFromFile.new(&quot;./test/fixtures/nick_1.txt&quot;, &quot;./test/fixtures/encrypted_nick.txt&quot;)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="16">
