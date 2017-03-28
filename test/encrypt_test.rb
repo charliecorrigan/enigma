@@ -14,7 +14,8 @@ class EncryptTest < Minitest::Test
   def test_encrypted_file_created_by_encrypt
     encrypt = Encrypt.new("./test/fixtures/nick_1.txt", "./test/fixtures/encrypted_nick.txt")
     encrypted_file = File.open("./test/fixtures/encrypted_nick.txt")
-    assert_equal "z9fzjp", encrypted_file.read
+    assert_equal 6, encrypted_file.read.length
+    assert_equal String, encrypted_file.read.class
   end
 
 end
