@@ -1,4 +1,5 @@
 require 'pry'
+require './lib/enigma'
 class Encrypt
 
   def initialize(input = nil, output = nil)
@@ -27,6 +28,8 @@ class Encrypt
     #binding.pry
     encrypted_file = File.open(@output, "w")
     encrypted_file.write(contents)
+    encrypted_file.close
     #binding.pry
   end
+
 end
