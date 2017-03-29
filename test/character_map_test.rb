@@ -18,6 +18,4 @@ class TestCharacterMap < Minitest::Test
     assert_equal 36, character_map.map[" "]
     assert_equal 38, character_map.map[","]
 end
-
-
 end

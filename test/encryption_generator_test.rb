@@ -13,21 +13,12 @@ class TestEncryptionGenerator < Minitest::Test
     assert_equal 0, encryption_generator.character_map.map["a"]
   end
 
-  def test_access_to_generate_keys
+  def test_keys_generator
     encryption_generator = EncryptionGenerator.new("hello world")
-    assert_equal String, encryption_generator.rotation_a.class
-  end
-
-  def test_access_to_generate_offsets
-    encryption_generator = EncryptionGenerator.new("hello world")
-    assert_equal String, encryption_generator.offset_a.class
-  end
-
-  def test_encryption_keys_generator_return
-    encryption_generator = EncryptionGenerator.new("hello world")
-    assert_equal Array, encryption_generator.encryption_keys.class
-    assert_equal 4, encryption_generator.encryption_keys.length
-    #TODO - figure out how to test specific return values
+    keys_generator = KeysGenerator.new(nil, nil)
+    keys = keys_generator.generate_keys
+    assert_equal Array, keys_generator.generate_keys.class
+    assert_equal 4, keys_generator.generate_keys.length
   end
 
   def test_if_translate_text_to_numbers
@@ -41,12 +32,6 @@ class TestEncryptionGenerator < Minitest::Test
     encryption_generator = EncryptionGenerator.new("hello world")
     assert_equal String, encryption_generator.generate_cipher("encrypt").class
     assert_equal 11, encryption_generator.generate_cipher("encrypt").length
-  end
-
-  def test_generate_cipher_for_accurate_encryption
-    encryption_generator = EncryptionGenerator.new("hello world")
-    encryption_generator.keys = [2, 4, 2, 4]
-    assert_equal "jinpqbystpf", encryption_generator.generate_cipher("encrypt")
   end
  
   def test_generate_cipher_for_accurate_encryption_with_key_and_date_arguments

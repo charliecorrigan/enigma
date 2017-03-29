@@ -1,3 +1,6 @@
+require './lib/rotation_generator'
+require './lib/offset_generator'
+
 class KeysGenerator
   attr_reader :input, :formatted_date
 
