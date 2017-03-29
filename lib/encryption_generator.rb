@@ -7,6 +7,8 @@ class EncryptionGenerator
   attr_accessor :keys
 
   def initialize(text, input = nil, formatted_date = nil)
+    keys_generator = KeysGenerator.new(input, formatted_date)
+    keys = keys_generator.generate_keys
     @text = text
     @character_map = CharacterMap.new
     key_input_decision(input)
