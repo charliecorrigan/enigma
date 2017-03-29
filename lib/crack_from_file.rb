@@ -5,6 +5,7 @@ class CrackFromFile
   def initialize(input = nil, output = nil)
     @input = input || ARGV[0]
     @output = output || ARGV[1]
+    #binding.pry
     create_and_write_cracked_file
   end
 
